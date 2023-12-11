@@ -1,0 +1,53 @@
+def bubbleSort(alist):
+    for passnum in range(len(alist)-1,0,-1):
+        for i in range(passnum):
+            if alist[i]>alist[i+1]:
+                temp = alist[i]
+                alist[i] = alist[i+1]
+                alist[i+1] = temp
+
+
+def selectionSort(alist):
+	
+	for ind in range(len(alist)):
+		min_index = ind
+
+		for j in range(ind + 1, len(alist)):
+		
+			if alist[j] < alist[min_index]:
+				min_index = j
+		
+		(alist[ind], alist[min_index]) = (alist[min_index], alist[ind])
+
+alist = []
+n =  int(input("Enter No of Subjects : "))
+print("Enter marks : ")
+for i in range(n):
+    alist.append(int(input()))
+   
+def rep():    
+    print("1. Enter Marks of Students from user : ")
+    print("2. Show the Marks of Students: ")
+    print("3. Sort Marks using Bubble Sort:")
+    print("4. Sort Marks using Selection Sort: ")
+    print("5. Exit")
+    ch = int(input("Enter your choice:"))
+
+    if ch == 2:
+        print(alist)
+        rep()        
+    elif ch == 3:
+        bubbleSort(alist)
+        print(alist)
+        rep()
+    elif ch == 4:
+        selectionSort(alist)
+        print(alist)
+        rep()
+    elif ch == 5:
+        exit
+    else:
+        print("Invalid Choice")
+        
+rep()
+       
